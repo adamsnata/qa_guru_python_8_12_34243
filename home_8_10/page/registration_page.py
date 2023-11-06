@@ -24,6 +24,7 @@ class RegistrationPage:
             browser.element('label[for=hobbies-checkbox-1]').should(be.visible).click()
         if 'Reading' in user.hobby:
             browser.element('label[for=hobbies-checkbox-2]').should(be.visible).click()
+
         browser.element('#uploadPicture').set_value(path(user.picture))
         browser.element('#currentAddress').should(be.visible).type(user.current_address)
         browser.element("#react-select-3-input").should(be.visible).type(user.state).press_enter()
