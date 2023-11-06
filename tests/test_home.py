@@ -1,13 +1,16 @@
+from selene import browser
+
 from home_8_10.page.registration_page import RegistrationPage
 from home_8_10.data.users import User
 import allure
 
-registration_page = RegistrationPage()
+
 
 
 def test_student_registration_form():
-    with allure.step("Открыть страницу регистрации пользователей"):
-        registration_page.open()
+    registration_page = RegistrationPage()
+    registration_page.open()
+
     with allure.step("Заполнить форму регистрации тестовыми данными"):
         student = User(first_name='Anton',
                    last_name='Fomin',
@@ -23,7 +26,7 @@ def test_student_registration_form():
                    current_address='Krasnodar',
                    state='NCR',
                    city='Delhi')
-    registration_page.open()
+
 
     # WHEN
     registration_page.register(student)

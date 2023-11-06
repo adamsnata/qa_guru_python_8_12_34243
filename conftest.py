@@ -24,6 +24,8 @@ def setup_browser():
     )
 
     browser.config.driver = driver
+    browser.config.base_url = 'https://demoqa.com'
+
     yield
 
     attach.add_screenshot(browser)
